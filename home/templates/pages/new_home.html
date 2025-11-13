@@ -1,0 +1,88 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block Content %}
+<style>
+  .about p {
+      margin: 10px auto;
+  }
+  .about .rubber-band{
+      line-height: inherit;
+      font-size:inherit;
+      color:inherit;
+  }
+  .about .rubber-letter{
+      line-height: inherit;
+      font-size:inherit;
+      color:inherit;
+  }
+</style>
+<span class="htmltag tag"> < h1 > </span>
+<h1 class='rubber-band'>Hi,I'am Marzook</h1>
+<span class="htmltag tag"> < /h1 > </span><br>
+<span class="htmltag tag"> < p > </span>
+<div class="about">
+    <p class="rubber-band">I am a recent Computer Science graduate passionate about designing and building full-stack, cloud-native applications from the ground up.</p>
+    <p class="rubber-band">I love architecting resilient and scalable systems. In one of my key projects, I developed a completeMulti-language microservice application using Java (Spring Boot), Python (FastAPI, Celery), and React to solve the challenge of translating large documents asynchronously without crashing the browser.  This project taught me how to effectively use different technologies for their strengths and make them work together seamlessly.</p>
+    <p class="rubber-band">I am actively seeking a challenging Software Engineer role where I can contribute my skills in microservices, containerization (Docker), and cloud platforms (AWS) to a forward-thinking team.</p>
+    <p class="rubber-band">Feel free to connect with me or reach out at mohdmarzook07@gmail.com.</p>
+</div>
+<span class="htmltag tag"> < /p > </span>
+<p class="contentpara"> </p>
+<a href="mailto:mohdmarzook07@gmail.com"><button class="btn btn1">Mail</button></a>
+<a href="https://github.com/MohdMarzook"><button class="btn btn1">GitHub</button></a>
+<a href="https://www.linkedin.com/in/mohdmarzook/"><button class="btn btn1">LinkedIn</button></a> <br>
+
+<span class="htmltag tag">< h1></span>
+<h1 class='rubber-band'>Projects</h1>
+<span class="htmltag tag">< /h1></span>
+
+<style>
+/* This rule says: find an element with the class "contentpara",
+   then style any <p> tag inside of it. */
+
+    div.contentpara strong {
+      color: white;
+    }
+    div.projectcontent .rubber-band , div.projectcontent .rubber-letter{
+        font-size: 1.2em;
+        line-height: unset;
+}
+</style>
+
+<div class="contentpara">
+      {% if projects %}
+            {% for project in projects %}
+                  <div class="projectname"><span class="htmltag tag">< h2></span>
+                  <h2 id='{{project.project_name}}' class='rubber-band'>{{project.project_name}}</h2>
+                  <span class="htmltag tag">< /h2></span></div>
+
+
+                  <div class="projectcontent">
+                        <span class="tag">
+                              < img>
+                        </span>
+                        <a href="{{project.website_link}}">
+                              {% if project.photo %}
+                                    <img src="{{ project.photo.url }}" alt="{{ project.project_name }}">
+                              {% else %}
+                                    <img src="{% static 'images/default.jpg' %}" alt="Default Image">
+                              {% endif %}
+                        </a>
+                        <span class="tag">
+                              < /img>
+                        </span>
+                        <p>
+                              {{project.description | safe}}
+                        </p>
+
+                  </div>
+            {% endfor %}
+      {% else %}
+            <p>No projects available at the moment.</p>
+      {% endif %}
+      <a href="/contact"><button class="btn btn1">Follow Me On Social Media</button></a>
+
+
+</div>
+{% endblock %}
