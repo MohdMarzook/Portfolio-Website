@@ -1,11 +1,20 @@
+html{
+    height :100%;
+    background: #1b1b1b;
+    scroll-behavior: smooth;
+}
 body{
   margin: 0;
   padding: 0;
-  background: #1b1b1b;
   font-family: 'Alegreya Sans SC', sans-serif;
   cursor:default;
+
 }
 
+div.contentpara p, li {
+  font-family:monospace !important;
+  line-height: 1.6;
+}
 
 .left_area h3{
   color: #fff;
@@ -32,6 +41,8 @@ body{
   transition: 0.5s;
   transition-property: left;
   overflow-y: auto;
+  display:flex;
+  flex-direction:column;
 }
 
 .profile_info{
@@ -72,6 +83,16 @@ body{
   padding-right: 10px;
 }
 
+/*home page */
+.about {
+    width:60%;
+    font-size:22px;
+    color:lightsteelblue;
+    padding: 10px 0px 10px 18px;
+    font-family: monospace;
+    line-height:1.3;
+}
+
 label #sidebar_btn{
 
   color: rgb(0, 0, 0);
@@ -110,48 +131,75 @@ label #sidebar_btn:hover{
   margin-bottom: 50px;
   transition-duration: 0.5s;
 }
+/*.sidebar:hover{*/
+/*    .sidebar .profile_info .profile_image{*/
+/*      width: 50px;*/
+/*      height: 50px;*/
+/*      margin-left: 80px;*/
+/*      margin-top: 45px;*/
+/*      margin-bottom: 50px;*/
+/*      transition-duration: 0.5s;*/
+/*    }*/
+/*}*/
 
 
+.rubber-word {
+    display: inline-block;
+}
 
 /* this is the text in middle page */
-.rubber-letter{
+.rubber-band {
   font-size: 50px;
-  transition: 0.3s ease;
+  transition: color 0.3s ease; /* Transition the color change */
   cursor: default;
   color: #19B3D3;
   line-height: 67px;
+  display:inline-block;
+  /* Add display so transform works consistently */
+}
+.rubber-letter {
+  font-size: 50px;
+  transition: color 0.3s ease; /* Transition the color change */
+  cursor: default;
+  color: #19B3D3;
+  line-height: 67px;
+  /* Add display so transform works consistently */
+  display: inline-block;
 }
 
-.rubber-letter:hover{
-  display: inline-block;
-  animation: rubberlater;
-  animation-duration: 1s;  
+/* This still handles the color change on hover */
+.rubber-letter:hover {
   color: rgb(14, 164, 168);
 }
 
-@keyframes rubberlater{
-  0%{
-      transform: scale3d(1, 1, 1);
+/* This new class will run the animation */
+.rubber-letter.is-animating {
+  animation: rubberlater 1s;
+}
+
+/* Your keyframes remain exactly the same */
+@keyframes rubberlater {
+  0% {
+    transform: scale3d(1, 1, 1);
   }
-  30%{
-      transform: scale3d(1.25, 0.75, 1);
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
   }
-  40%{
-      transform: scale3d(0.75, 1.25, 1);
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
   }
-  50%{
-      transform: scale3d(1.15, 0.85, 1);
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
   }
-  65%{
-      transform: scale3d(0.95, 1.05, 1);
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
   }
-  75%{
-      transform: scale3d(1.05, 0.95, 1);
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
   }
-  100%{
-      transform: scale3d(1, 1, 1);
-  } 
-  
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 span.htmltag.htmltag1{
@@ -179,13 +227,13 @@ span.htmltag.bodytag1{
 }
 .htmlbody1{
   margin-top: 15px;
-}  
+}
 .htmlbody2{
   margin-bottom: 15px;
 }
 
 .content{
-  padding-left: 270px;
+  padding-left: 250px;
   background-position: center;
   background-size: cover;
   font-family: 'Alegreya Sans SC', sans-serif;
@@ -198,10 +246,10 @@ span.htmltag.bodytag1{
 
 
 .content h1{
-  margin: 10px 0px 10px 15px;
+  margin: 10px 10px 10px 10px;
 }
 .content h2{
-  margin: 10px 0px 10px 30px;
+  margin: 10px 10px 10px 10px;
 }
 
 
@@ -211,9 +259,9 @@ span.htmltag.bodytag1{
   font-size: 21px;
   line-height: 21px;
   font-family: 'Alegreya Sans SC', sans-serif;
-  padding-right: 16%;
+  padding-right: 13%;
   margin: 20px 0px;
-  
+
 }
 
 .contentpara img{
@@ -234,6 +282,7 @@ span.tag{
   color:#3498db;
   font-size: 18px;
   user-select: none;
+  display:inline-block;
   /* h1 tag 1 and h2 tag 2 */
 }
 
@@ -247,11 +296,11 @@ span.tag{
 #check:checked ~ div.htmlbody1 span.htmltag.bodytag1,
 #check:checked ~ div.htmlbody2 span.htmltag.bodytag1{
   padding-left: 140px;
-  transition-delay: 0.16s;  
+  transition-delay: 0.16s;
   transition-duration: 0.7s;
 }
 #check:checked ~ div div.content{
-  padding-left: 240px;
+  padding-left: 220px;
   transition-delay: 0.18s;
   transition-duration: 0.7s;
 }
@@ -327,15 +376,14 @@ span.tag{
 .mobile_nav{
   display: none;
 }
-/* this is used for the text and its 
-background color and spacing between them 
-*/ 
+/* this is used for the text and its
+background color and spacing between them
+*/
 
 
 /* Responsive CSS */
-
-@media screen and (max-width: 780px){
-  .sidebar{
+@media screen and (max-width: 450px){
+.sidebar{
     display: none;
   }
 
@@ -344,13 +392,12 @@ background color and spacing between them
   }
 
   .content{
-    margin-top: 65px;
-    padding-left: 15%;
+    padding-left: 7%;
   }
 
   #check:checked ~ .content{
     margin-left: 0px;
-    
+
   }
   .contentpara{
     line-height: 20px;
@@ -369,7 +416,7 @@ background color and spacing between them
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    
+
   }
 
   .nav_bar .mobile_profile_image{
@@ -377,7 +424,7 @@ background color and spacing between them
     height: 50px;
     margin-left: 5%;
   }
-  
+
   .nav_bar .nav_btn{
     color: #fff;
     font-size: 22px;
@@ -420,7 +467,106 @@ background color and spacing between them
   span.htmltag.htmltag2{
     padding-left: 2%;
   }
-  /* html tag 1 and 2 */  
+  /* html tag 1 and 2 */
+
+  div.htmlbody1 span.htmltag.bodytag1,
+  div.htmlbody2 span.htmltag.bodytag1 {
+    padding-left: 5%;
+  }
+.active{
+    display: block;
+}
+.about {
+  width:90%;
+}
+}
+@media (min-width: 450px) and (max-width: 768px){
+  .sidebar{
+    display: none;
+  }
+
+  #sidebar_btn{
+    display: none;
+  }
+
+  .content{
+    margin-top: 65px;
+    padding-left: 10%;
+  }
+
+  #check:checked ~ .content{
+    margin-left: 0px;
+
+  }
+  .contentpara{
+    line-height: 20px;
+    padding-right: 50px;
+  }
+
+  .mobile_nav{
+    display: block;
+    width: calc(100% - 0%);
+  }
+
+  .nav_bar{
+    background: #222;
+    width: (100% - 0px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+  }
+
+  .nav_bar .mobile_profile_image{
+    width: 50px;
+    height: 50px;
+    margin-left: 5%;
+  }
+
+  .nav_bar .nav_btn{
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.5s;
+    transition-property: all;
+    margin-right: 3%;
+  }
+
+  .nav_bar .nav_btn:hover{
+    color: #19B3D3;
+  }
+
+  .mobile_nav_items{
+    background: #2F323A;
+    display: none;
+    transition: 0.5s;
+  }
+
+  .mobile_nav_items a{
+    color: #fff;
+    display: block;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 60px;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.7s;
+    transition-property: all;
+  }
+
+  .mobile_nav_items a:hover{
+    background: #19B3D3;
+  }
+
+  .mobile_nav_items i{
+    padding-right: 20px;
+  }
+  span.htmltag.htmltag1,
+  span.htmltag.htmltag2{
+    padding-left: 2%;
+  }
+  /* html tag 1 and 2 */
 
   div.htmlbody1 span.htmltag.bodytag1,
   div.htmlbody2 span.htmltag.bodytag1 {

@@ -4,7 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mohamed Marzook">
     <title>My Portfolio</title>
+
     <link rel="shortcut icon" href="{% static 'images/icon.png'%}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/custom1.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -27,7 +29,7 @@
       <div class="mobile_nav_items">
         <a href="/"><i class="fas fa-desktop"></i><span>Home</span></a>
         <a href="/projects"><i class="fas fa-cogs"></i><span>projects</span></a>
-        <a href="/about"><i class="fas fa-info-circle"></i><span>About</span></a>
+        <!--<a href="/about"><i class="fas fa-info-circle"></i><span>About</span></a>-->
         <a href="/contact"><i class="fas fa-sliders-h"></i><span>contact</span></a>
       </div>
     </div>
@@ -38,17 +40,17 @@
         <label for="check">
           <img src="{% static 'images/icon.png' %}" class="profile_image" alt="">
         </label>
-        
+
       </div>
       <a href="/"><i class="fas fa-desktop"></i><span>Home</span></a>
       <a href="/projects" ><i class="fas fa-cogs"></i><span>projects</span></a>
-      <a href="/about"  ><i class="fas fa-info-circle"></i><span>About</span></a>
+      <!--<a href="/about"  ><i class="fas fa-info-circle"></i><span>About</span></a>-->
       <a href="/contact"><i class="fas fa-sliders-h"></i><span>contact</span></a>
       </div>
     <!--sidebar end-->
-  
+
       <span class="htmltag htmltag1"> < html > </span>
-    
+
     <div class="htmlbody1">
     <span class="htmltag bodytag1"> < body > </span>
     </div>
@@ -56,10 +58,10 @@
     <div class="content">
       {% block Content %}
       {% endblock Content %}
-      
+
       <script src="{% static 'js/textA.js' %}"></script>
     </div>
-  </div> 
+  </div>
 
     <div class="htmlbody2"><span class="htmltag bodytag1" > < /body > </span></div>
     <span class="htmltag htmltag1"> < /html > </span>

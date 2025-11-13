@@ -7,12 +7,24 @@
 <h1 class='rubber-band'>Projects</h1>
 <span class="htmltag tag">< /h1></span>
 
+<style>
+/* This rule says: find an element with the class "contentpara",
+   then style any <p> tag inside of it. */
+
+div.contentpara strong {
+  color: white;
+}
+div.projectcontent .rubber-band , div.projectcontent .rubber-letter{
+    font-size: 1.2em;
+    line-height: unset;
+}
+</style>
 
 <div class="contentpara">
       {% if projects %}
             {% for project in projects %}
                   <div class="projectname"><span class="htmltag tag">< h2></span>
-                  <h2 class='rubber-band'>{{project.project_name}}</h2>
+                  <h2 id='{{project.project_name}}' class='rubber-band'>{{project.project_name}}</h2>
                   <span class="htmltag tag">< /h2></span></div>
 
 
@@ -28,26 +40,26 @@
                               {% endif %}
                         </a>
                         <span class="tag">
-                              < /img>     
+                              < /img>
                         </span>
                         <p>
                               {{project.description | safe}}
                         </p>
-                        
+
                   </div>
             {% endfor %}
       {% else %}
             <p>No projects available at the moment.</p>
       {% endif %}
       <a href="/contact"><button class="btn btn1">Follow Me On Social Media</button></a>
-      
+
 
 </div>
 
 {% endblock %}
 
 
-<!-- 
+<!--
 <div class="projectcontent">
       <span class="tag">
             < img>
@@ -67,5 +79,5 @@
             APIs and demonstrates my proficiency in handling data formats and performing calculations to deliver
             valuable solutions.
       </p>
-      
+
 </div> -->

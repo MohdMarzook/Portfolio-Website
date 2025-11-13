@@ -2,9 +2,32 @@
 {% load static %}
 
 {% block Content %}
-      <span class="htmltag tag"> < h1 > </span>
-      <h1 class='rubber-band'>Hi,I'am%Marzook%CSE%Student</h1>
-      <span class="htmltag tag"> < /h1 > </span>
-      <p class="contentpara">Computer  Science  Student</p>
-      <a href="/contact"><button class="btn btn1">Follow Me On Social Media</button></a>
+<style>
+  .about p {
+      margin: 10px auto;
+  }
+  .about .rubber-band{
+      line-height: inherit;
+      font-size:inherit;
+      color:inherit;
+  }
+  .about .rubber-letter{
+      line-height: inherit;
+      font-size:inherit;
+      color:inherit;
+  }
+</style>
+        <span class="htmltag tag"> < h1 > </span>
+        <h1 class='rubber-band'>Hi,I'am Marzook</h1>
+        <span class="htmltag tag"> < /h1 > </span><br>
+        <span class="htmltag tag"> < p > </span>
+        <div class="about">
+            <p class="rubber-band">I am a recent Computer Science graduate passionate about designing and building full-stack, cloud-native applications from the ground up.</p>
+            <p class="rubber-band">I love architecting resilient and scalable systems. In one of my key projects, I developed a completeMulti-language microservice application using Java (Spring Boot), Python (FastAPI, Celery), and React to solve the challenge of translating large documents asynchronously without crashing the browser.  This project taught me how to effectively use different technologies for their strengths and make them work together seamlessly.</p>
+            <p class="rubber-band">I am actively seeking a challenging Software Engineer role where I can contribute my skills in microservices, containerization (Docker), and cloud platforms (AWS) to a forward-thinking team.</p>
+            <p class="rubber-band">Feel free to connect with me or reach out at mohdmarzook07@gmail.com.</p>
+        </div>
+        <span class="htmltag tag"> < /p > </span>
+        <p class="contentpara"> </p>
+        <a href="/contact"><button class="btn btn1">Follow Me On Social Media</button></a>
 {% endblock %}
